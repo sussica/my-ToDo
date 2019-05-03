@@ -4,27 +4,31 @@
 <head>
   <meta charset="utf-8">
   <title>my ToDo</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <h1><%= KindOfDay %></h1>
-
-  <ul>
 
 
+  <div class="box" id="heading">
+    <h1><%= KindOfDay %></h1>
+
+  </div>
+
+  <div class="box">
     <%  for(var i = 0; i< newItems.length; i++){ %>
-    <li><%= newItems[i]%></li>
+    <div class="item">
+      <input type="checkbox">
+      <p><%= newItems[i]%></p>
+    </div>
     <%    } %>
 
+    <form class="item" action="/" method="post">
+      <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+      <button type="submit" name="button">+</button>
+    </form>
+  </div>
 
-
-
-  </ul>
-
-  <form action="/" method="post">
-    <input type="text" name="newItem" placeholder="new item">
-    <button type="submit" name="button">Submit</button>
-  </form>
 
 
 
