@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const port = 3000
+const date = require(__dirname+'/date.js')
+
+
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
@@ -20,19 +23,10 @@ var workItems = [];
 
 app.get("/", function(req, res) {
 
-  var today = new Date();
-
-  var options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  };
-
-  var date = today.toLocaleDateString("en-US", options);
+//let day = date();
 
   res.render('index', {
-    KindOfDay: date,
+    KindOfDay: date.getDate(),
     newItems: items
   });
 })
@@ -47,8 +41,6 @@ app.post('/', function(req, res) {
   res.redirect('/');
 }});
 
-
-
 // Work Page
 
 app.get('/work', function(req, res){
@@ -58,17 +50,9 @@ app.get('/work', function(req, res){
   });
 });
 
-
 app.get('/about', function(req,res){
   res.render('about');
 })
-
-
-
-
-
-
-
 
 app.listen(port, function() {
   console.log("It's running XD")
