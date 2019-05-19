@@ -5,6 +5,7 @@ const port = 3000
 const mongoose = require('mongoose')
 const _= require('lodash')
 const favicon = require('serve-favicon');
+const path = require('path');
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
@@ -169,6 +170,4 @@ app.get('/about', function(req, res) {
   res.render('about');
 })
 
-app.listen(port, function() {
-  console.log("It's running XD")
-})
+app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${port}!`))
