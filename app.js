@@ -4,12 +4,15 @@ const bodyParser = require('body-parser')
 const port = 3000
 const mongoose = require('mongoose')
 const _= require('lodash')
-
+const favicon = require('serve-favicon');
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
+
 app.use(express.static("public"))
 
 mongoose.connect("mongodb+srv://Scarlett:test123@cluster0-dl5ow.mongodb.net/todolistDB", {
@@ -52,9 +55,7 @@ const List = mongoose.model(
 
 
 // Main Page
-app.get('/favicon.ico',function(req, res){
 
-})
 
 app.get("/", function(req, res) {
 
