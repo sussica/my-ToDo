@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
-app.use(express.static("public"))
+app.use(express.static("Public"))
 
 mongoose.connect("mongodb+srv://Scarlett:test123@cluster0-dl5ow.mongodb.net/todolistDB", {
   useNewUrlParser: true
@@ -138,6 +138,7 @@ app.post('/delete', function(req, res) {
 })
 
 // Work Page
+
 
 
 
