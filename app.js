@@ -52,7 +52,9 @@ const List = mongoose.model(
 
 
 // Main Page
+app.get('/favicon.ico',function(req, res){
 
+})
 
 app.get("/", function(req, res) {
 
@@ -162,13 +164,10 @@ app.get("/:CustomListName", function(req, res) {
   })
 });
 
-
-
-
 app.get('/about', function(req, res) {
   res.render('about');
 })
 
-
-
-app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, function() {
+  console.log("It's running XD")
+})
