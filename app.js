@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"))
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
+mongoose.connect("mongodb+srv://Scarlett:test123@cluster0-dl5ow.mongodb.net/todolistDB", {
   useNewUrlParser: true
 });
 
@@ -169,6 +169,6 @@ app.get('/about', function(req, res) {
   res.render('about');
 })
 
-app.listen(port, function() {
-  console.log("It's running XD")
-})
+
+
+app.listen(process.env.PORT || port, () => console.log(`Example app listening on port ${port}!`))
